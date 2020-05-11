@@ -1,3 +1,10 @@
+# ---
+#  title: 'Codebook - COURSE 3 WEEK4''s Programming Assignment '
+#output:
+#  
+# ---
+  
+
 
 print("#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       WELCOME       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 print("# NOTE THAT THIS SCRIPT WAS DEVELOPED IN A WINDOWS MACHINE")
@@ -58,10 +65,11 @@ loadDataFromFileSSet <- function(dataSet, XCLabels, Ycategories, YClabel = "Acti
 }
 
 
+## Load the data into DFs
 train_dataset <- loadDataFromFileSSet(dataSet = training_set, XCLabels = labels_set["features"]);
 test_dataset <- loadDataFromFileSSet(dataSet = test_set, XCLabels = labels_set["features"]);
 
-## MERGED DATA 
+## MERGED DATA TRAIN AND TEST
 merged_data <- rbind(train_dataset, test_dataset) 
 
 
@@ -89,7 +97,6 @@ names(extracted_data)<-gsub("std[.]{2}", "STD", names(extracted_data))
 names(extracted_data)<-gsub("freq[.]{2}", "FREQUENCY", names(extracted_data))
 names(extracted_data)<-gsub("BodyBody", "Body", names(extracted_data))
 names(extracted_data)<-gsub("Body[.]", "Body", names(extracted_data))
-View(names(extracted_data))
 
 
 ## 5.	From the data set in step 4, creates a second, independent tidy data set with 
@@ -97,12 +104,16 @@ View(names(extracted_data))
 # HELP: Removing objects from a list :  https://statisticsglobe.com/remove-element-from-list-in-r
 summarize_columns <- names(extracted_data)
 summarize_columns <- summarize_columns[summarize_columns %in% c("Subject","Activity") == FALSE]
-View(summarize_columns)
 summary_df <- group_by(.data=extracted_data, Subject, Activity) %>% summarise_at(funs(mean), .vars=summarize_columns)
-View(summary_df)
 
+## Saving the summarized DATA FRAME!
+## For more information on HOWTO save a DF into CSV HERE: 
+##    http://mercury.webster.edu/aleshunas/R_learning_infrastructure/Saving%20an%20R%20data%20file.html
+write.csv(x = summary_df, file = "ActivitySubjectMeanSummary.csv")
 
-## ANNEXES - Building information for Codebook
-codebook_variableinfo <- data.frame()
+print("#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       BYE       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("#                              /!\      Processing END     /!\                             #")
+print("# You will find the summary of the Data in the file 'ActivitySubjectMeanSummary.csv'       #")
+print("#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     END-BYE     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
 
