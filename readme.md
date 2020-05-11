@@ -19,6 +19,24 @@ This work will be evaluated by anybody who wants to review it. The evaluation cr
 
 5. The work submitted for this project is the work of the student who submitted it.
 
+# PROCEDURE TO REPLICATE THE TIDY DATA SET
+
+* The original data was downloaded and UNZIPPED in the local directory.
+
+* The `run_analysis.R` script worked on the original data as follow: 
+  
+  * The training and the test sets were merged in one data set.
+
+  * Only the measurements on the mean and standard deviation for each measurement were extracted.
+
+  * The Activity values were replaced by their description.
+
+  * Appropiate descriptive labels were added to each variable name.
+
+  * Then, an  average of each variable for each activity and each subject was prepared. 
+
+  * The Data was saved on `ActivitySubjectMeanSummary.txt` file.
+
 
 # ABOUT THIS REPOSITORY CONTENT
 
@@ -45,4 +63,3 @@ This work will be evaluated by anybody who wants to review it. The evaluation cr
     * OTHER FILES
       - `./UCI HAR Dataset/activity_labels.txt`
       - `./UCI HAR Dataset/features.txt`
-        
