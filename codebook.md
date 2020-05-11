@@ -29,7 +29,7 @@ The original data, was treated as follow:
 *RESULT:*  The data set summarizing the average value for each variable for each activity and each subject.
 
 ## The DATA SET
-You can find the final data set, `ActivitySubjectMeanSummary.csv`, on this repossitory [HERE](./ActivitySubjectMeanSummary.csv).
+You can find the final data set, `ActivitySubjectMeanSummary.txt`, on this repossitory [HERE](./ActivitySubjectMeanSummary.txt).
 
 # Variables information
 
