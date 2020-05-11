@@ -20,24 +20,29 @@ This work will be evaluated by anybody who wants to review it. The evaluation cr
 5. The work submitted for this project is the work of the student who submitted it.
 
 
-# REPOSITORY CONTENT
+# ABOUT THIS REPOSITORY CONTENT
 
 * [This File, `README.md`](./readme.md), that explains how all of the scripts work and how they are connected.
 * [A code book `codebook.md`](./codebook.md), that describes the variables, the data, and any transformations or work that performed to clean up of the data. 
-* [The `run_analysis.R` script](./run_analysis.R) that performs all the required.
-* [The tidy data set, `ActivtiySubjectMeanSummary.csv`](./ActivtiySubjectMeanSummary.csv) in CSV format.
+* [The `run_analysis.R` script](./run_analysis.R) that performs all the required calculations to create the tidy data set.
+  ```
+      ## *TO RUN IT*
+      ##    In the R console.
+      source("run_analysis.R")
+  ```
+* [The tidy data set, `ActivtiySubjectMeanSummary.txt`](./ActivitySubjectMeanSummary.txt) in TEXT format. You can load it using the `read.table` function in *R*.
 * [`data` folder](./data), a folder with the data file (ZIP) used to prepare the tidy data set. 
-    *NOTE* it must be unzipped under data to avoid the script downloads the data zip from the Internet. You must be sure that the files are present in the working directory when running the `run_analysis.R` script :
+    *NOTE* it must be unzipped under the working directory where `run_analysis.R` script was launched, to avoid downloading the data zip from the Internet. You must be sure that the following files are present in the working directory before running the `run_analysis.R` script :
     * TRAIN SET 
-      - `./data/UCI HAR Dataset/train/X_train.tx`t
-      - `./data/UCI HAR Dataset/train/y_train.txt`
-      - `./data/UCI HAR Dataset/train/subject_train.txt` 
+      - `./UCI HAR Dataset/train/X_train.tx`t
+      - `./UCI HAR Dataset/train/y_train.txt`
+      - `./UCI HAR Dataset/train/subject_train.txt` 
       
     * TEST SET
-      - `./data/UCI HAR Dataset/test/X_test.txt`
-      - `./data/UCI HAR Dataset/test/y_test.txt`
-      - `./data/UCI HAR Dataset/test/subject_test.txt`
+      - `./UCI HAR Dataset/test/X_test.txt`
+      - `./UCI HAR Dataset/test/y_test.txt`
+      - `./UCI HAR Dataset/test/subject_test.txt`
     * OTHER FILES
-      - `./data/UCI HAR Dataset/activity_labels.txt`
-      - `./data/UCI HAR Dataset/features.txt`
+      - `./UCI HAR Dataset/activity_labels.txt`
+      - `./UCI HAR Dataset/features.txt`
         
