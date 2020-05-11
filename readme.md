@@ -22,7 +22,7 @@ This work will be evaluated by anybody who wants to review it. The evaluation cr
 
 # REPOSITORY CONTENT
 
-* [This File, `README.md`](./README.md), that explains how all of the scripts work and how they are connected.
+* [This File, `README.md`](./readme.md), that explains how all of the scripts work and how they are connected.
 * [A code book `codebook.md`](./codebook.md), that describes the variables, the data, and any transformations or work that performed to clean up of the data. 
 * [The `run_analysis.R` script](./run_analysis.R) that performs all the required.
 * [The tidy data set, `ActivtiySubjectMeanSummary.csv`](./ActivtiySubjectMeanSummary.csv) in CSV format.
