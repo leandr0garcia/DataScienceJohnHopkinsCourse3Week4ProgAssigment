@@ -12,14 +12,14 @@ print("#      It may require a customisation for other O.S.")
 print("#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     END-WELCOME     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
 # Required file names
-Xtrain_fname <- "./data/UCI HAR Dataset/train/X_train.txt"
-Ytrain_fname <- "./data/UCI HAR Dataset/train/y_train.txt"
-Strain_fname <- "./data/UCI HAR Dataset/train/subject_train.txt" 
-Xtest_fname <- "./data/UCI HAR Dataset/test/X_test.txt"
-Ytest_fname <- "./data/UCI HAR Dataset/test/y_test.txt"
-Stest_fname <- "./data/UCI HAR Dataset/test/subject_test.txt"
-activitylbls_fname <- "./data/UCI HAR Dataset/activity_labels.txt"
-featuresname_fname <- "./data/UCI HAR Dataset/features.txt" 
+Xtrain_fname <- "./UCI HAR Dataset/train/X_train.txt"
+Ytrain_fname <- "./UCI HAR Dataset/train/y_train.txt"
+Strain_fname <- "./UCI HAR Dataset/train/subject_train.txt" 
+Xtest_fname <- "./UCI HAR Dataset/test/X_test.txt"
+Ytest_fname <- "./UCI HAR Dataset/test/y_test.txt"
+Stest_fname <- "./UCI HAR Dataset/test/subject_test.txt"
+activitylbls_fname <- "./UCI HAR Dataset/activity_labels.txt"
+featuresname_fname <- "./UCI HAR Dataset/features.txt" 
 
 data_files <- c(Xtrain_fname, Ytrain_fname, Strain_fname,
                 Xtest_fname, Ytest_fname, Stest_fname,
@@ -39,7 +39,7 @@ if(sum(present_datafiles_result) != length(data_files)) {
     data_URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
     data_zip_filename <- "./data/getdata_projectfiles_UCI HAR Dataset.zip"
     download.file(data_URL, data_zip_filename, mode = "wb")
-    unzip(data_zip_filename, exdir = "./data")
+    unzip(data_zip_filename, exdir = ".")
     
     
     ## VERIFYING THAT THE DOWNLOAD CONTENT IS CORRECT!
@@ -104,12 +104,14 @@ names(extracted_data)<-gsub("Body[.]", "Body", names(extracted_data))
 # HELP: Removing objects from a list :  https://statisticsglobe.com/remove-element-from-list-in-r
 summarize_columns <- names(extracted_data)
 summarize_columns <- summarize_columns[summarize_columns %in% c("Subject","Activity") == FALSE]
-summary_df <- group_by(.data=extracted_data, Subject, Activity) %>% summarise_at(funs(mean), .vars=summarize_columns)
+summary_df <- group_by(.data=extracted_data, Subject, Activity) %>% summarise_at(.funs =c(mean), .vars=summarize_columns)
 
 ## Saving the summarized DATA FRAME!
 ## For more information on HOWTO save a DF into CSV HERE: 
 ##    http://mercury.webster.edu/aleshunas/R_learning_infrastructure/Saving%20an%20R%20data%20file.html
 write.csv(x = summary_df, file = "ActivitySubjectMeanSummary.csv")
+## Saving the file to submit
+write.table(x = summary_df, file = "ActivitySubjectMeanSummary.txt", row.names = FALSE)
 
 print("#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       BYE       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 print("#                              /!\      Processing END     /!\                             #")
