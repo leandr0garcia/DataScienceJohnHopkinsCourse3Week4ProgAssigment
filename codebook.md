@@ -6,7 +6,7 @@ output: html_notebook
 # Introduction
 The following document is the `codebook` for the treated Data Set for the *John Hopkings' Data Science - Week4's programming assignment'. Below you will find the requirement information requested on this programming assigment.
 
-In case you have reached here without reading the `README.md` file, it is recommended to visit it, [README](./README.md), to understand the project structure and the files containted with this codebook.
+In case you have reached here without reading the `README.md` file, it is recommended to visit it, [README](./readme.md), to understand the project structure and the files containted with this codebook.
 
 
 # Data Set Information
